@@ -28,7 +28,7 @@ leer.** Aquí puedes revisarlo sin bajar nada.
 |---|---|
 | [`REGLAS.md`](REGLAS.md) | La constitución de tu pensadero. Dos páginas. |
 | [`PROMPTS.md`](PROMPTS.md) | Los tres prompts, listos para pegar. |
-| [`verificador.py`](verificador.py) | El revisor de fichas. **Solo lee**: no escribe, no borra, no usa internet. Unas 360 líneas comentadas. |
+| [`verificador.py`](verificador.py) | El revisor de fichas. **Sobre tu pensadero solo lee**: no escribe, no borra, no usa internet. La autoprueba es la única que escribe, y lo hace en una carpeta temporal del sistema. Unas 360 líneas comentadas. |
 | [`COMO REVISAR TUS FICHAS.md`](COMO%20REVISAR%20TUS%20FICHAS.md) | Tres caminos para revisar. El más simple: pedírselo a tu IA. |
 | [`Verificar (Windows).bat`](Verificar%20(Windows).bat) | El único archivo que se ejecuta, y solo en Windows. **Veinte líneas**: léelo entero antes. |
 | [`ejemplo/`](ejemplo) | Un pensadero de dos fichas que funciona. |

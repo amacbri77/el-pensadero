@@ -15,10 +15,17 @@ QUE NO HACE
     contener una mentira y este programa dira SANO.
 
 SEGURIDAD — puedes comprobarlo leyendo el codigo
-    - Solo LEE archivos. No escribe, no borra, no renombra.
+    - Sobre TU pensadero solo LEE. No escribe, no borra, no renombra: nunca.
     - No usa red. No importa ninguna libreria de red.
     - No sale de la carpeta que le indiques.
     - Solo usa la libreria estandar de Python.
+
+    UNICA EXCEPCION, y conviene decirla: la opcion --autoprueba SI escribe.
+    Crea fichas rotas a proposito dentro de una carpeta temporal del sistema
+    (tempfile.mkdtemp) y la borra entera al terminar. No toca tus archivos ni
+    tu carpeta. Si no corres --autoprueba, este programa no escribe nada en
+    ningun sitio. Puedes comprobarlo: las unicas lineas que escriben o borran
+    estan dentro de la funcion autoprueba().
 
 COMO SE USA
     python3 verificador.py <ruta a Mi_Pensadero>

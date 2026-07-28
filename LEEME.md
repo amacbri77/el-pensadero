@@ -32,7 +32,7 @@ El proyecto se distingue con el primer tag de cada ficha, no con carpetas.
 | `PROMPTS.md` | Los tres prompts, listos para pegar. |
 | `COMO REVISAR TUS FICHAS.md` | Tres caminos para revisar. El mas simple: pedirselo a tu IA. |
 | `Verificar (Windows).bat` | Doble clic, solo Windows. Veinte lineas: abrelo y leelo antes. En Mac se usa la IA o la terminal, sin bloqueos. |
-| `verificador.py` | El revisor. Solo lee: no escribe, no borra, no usa internet. |
+| `verificador.py` | El revisor. **Sobre tu pensadero solo lee**: no escribe, no borra, no usa internet. La autoprueba es la unica que escribe, y lo hace en una carpeta temporal del sistema. |
 | `ejemplo/` | Un pensadero de dos fichas que funciona. Sirve de plantilla. |
 | `EL PENSADERO — guia rapida.pdf` | Seis pasos para instalarlo. **Empieza aqui.** |
 | `EL PENSADERO — guia completa.pdf` | La explicacion entera, para leer con calma. |
@@ -46,8 +46,13 @@ El proyecto se distingue con el primer tag de cada ficha, no con carpetas.
 
 ## Sobre seguridad
 
-`verificador.py` solo lee archivos, no usa red y no sale de la carpeta que le
-indiques. Puedes comprobarlo abriendolo: son unas 360 lineas comentadas. El lanzador de
+`verificador.py` **sobre tu pensadero solo lee**: no escribe, no borra, no usa
+red y no sale de la carpeta que le indiques. La unica excepcion es la autoprueba
+(`--autoprueba`), que crea fichas rotas a proposito en una carpeta temporal del
+sistema y la borra al terminar; nunca toca tus archivos. Si no la corres, el
+programa no escribe nada en ningun sitio. Puedes comprobarlo abriendolo: las
+unicas lineas que escriben estan dentro de la funcion `autoprueba`. Son unas 360
+lineas comentadas. El lanzador de
 Windows tiene veinte lineas, a proposito, para que lo leas entero en medio minuto
 antes de ejecutarlo. En Mac no hay lanzador: macOS bloquea los ejecutables
 descargados con un aviso que asusta, y preferimos no ponerte en esa situacion.
