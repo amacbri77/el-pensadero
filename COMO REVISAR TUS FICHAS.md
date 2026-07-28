@@ -24,40 +24,42 @@ Listo. No hay paso 2.
 
 ---
 
-## Forma 2 · Doble clic
+## Forma 2 · Doble clic — solo Windows
 
-En la carpeta del kit hay dos archivos:
+En la carpeta del kit hay un archivo: **`Verificar (Windows).bat`**. Haz doble clic.
 
-| Si usas | Haz doble clic en |
-|---|---|
-| **Windows** | `Verificar (Windows).bat` |
-| **Mac** | `Verificar (Mac).command` |
+Se abre una ventana negra y **te pregunta dónde está tu pensadero**. Arrastra tu
+carpeta `Mi_Pensadero` a la ventana y pulsa Enter. También puedes arrastrar la
+carpeta directamente encima del archivo `.bat` y se salta la pregunta.
 
-Se abre una ventana negra y **te pregunta dónde está tu pensadero**.
+Al terminar, el resultado queda guardado en `ultimo-resultado.txt`, dentro de la
+carpeta del kit. Así no se pierde al cerrar la ventana.
 
-- **En Windows** puedes además **arrastrar tu carpeta `Mi_Pensadero` encima del archivo `.bat`** y se salta la pregunta.
-- **En Mac**, cuando te pregunte, arrastra la carpeta dentro de la ventana negra y pulsa Enter. La ruta se escribe sola.
-- Si prefieres probar primero con el ejemplo que trae el kit, escribe `ejemplo/Mi_Pensadero`.
-
-Al terminar verás el resultado y **quedará guardado en `ultimo-resultado.txt`**, dentro de la carpeta del kit. Así no se pierde al cerrar la ventana: si te salieron varios problemas, los tienes ahí para irlos arreglando con calma.
-
-**Los dos archivos tienen unas doce líneas.** Ábrelos con el Bloc de notas o TextEdit antes de usarlos: verás que solo llaman al revisor y guardan el resultado. Es exactamente lo que este kit te pide que hagas siempre antes de ejecutar algo.
+**El archivo tiene doce líneas.** Ábrelo con el Bloc de notas antes de usarlo: verás
+que solo llama al revisor y guarda el resultado.
 
 ### Si Windows te muestra una advertencia
 
-Pueden salirte **dos avisos distintos**, según cómo llegó el archivo a tu computador:
+Pueden salirte **dos avisos distintos**, según cómo llegó el archivo:
 
 **a) «Windows protegió su PC»** (pantalla azul).
 Pulsa **Más información** → **Ejecutar de todas formas**.
 
 **b) «No se pudo comprobar el editor. ¿Está seguro de que desea ejecutar este software?»**
-Pulsa **Ejecutar**. Si aparece una casilla que dice *«Preguntar siempre antes de abrir este archivo»*, puedes desmarcarla para que no vuelva a preguntar.
+Pulsa **Ejecutar**.
 
-Los dos aparecen porque el archivo vino de internet y nadie pagó una firma digital, **no porque el programa haga algo raro**. Si prefieres no ejecutarlo, usa la Forma 1 o la 3.
+Los dos aparecen porque el archivo vino de internet y nadie pagó una firma digital,
+**no porque el programa haga algo raro**. Si prefieres no ejecutarlo, usa la Forma 1
+o la Forma 3.
 
-### Si el Mac dice que no puede abrirlo
+### ¿Y en Mac?
 
-Dirá *«no se puede abrir porque procede de un desarrollador no identificado»*. Haz **clic derecho** sobre el archivo → **Abrir** → **Abrir** otra vez en el aviso. Solo la primera vez.
+**En Mac no hay doble clic, a propósito.** macOS bloquea los archivos ejecutables
+descargados de internet y muestra un aviso de «software malicioso» que asusta y que
+cuesta trabajo saltarse. **Preferimos no ponerte en esa situación.**
+
+En Mac usa la **Forma 1** —pídeselo a tu IA, es lo más rápido— o la **Forma 3**, que
+está explicada paso a paso más abajo. El resultado es exactamente el mismo.
 
 ---
 
