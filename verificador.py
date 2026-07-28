@@ -68,6 +68,11 @@ def leer_fichas(raiz):
         if not nombre.endswith(".md"):
             continue
         texto = open(os.path.join(carpeta, nombre), encoding="utf-8").read()
+        # El Bloc de notas y varios editores guardan una marca invisible al
+        # principio del archivo (BOM). Con ella, la ficha esta perfectamente
+        # bien y el revisor decia "no tiene frontmatter": un callejon sin
+        # salida, porque lo que sobra no se ve. Se ignora. (2026-07-27)
+        texto = texto.lstrip("﻿").replace("\r\n", "\n")
         m = re.match(r"^---\n(.*?)\n---\n?(.*)$", texto, re.S)
         fichas[nombre] = {"fm": m.group(1) if m else None,
                           "cuerpo": (m.group(2) if m else texto)}
@@ -270,6 +275,10 @@ def autoprueba():
         nada = lambda s: s
         casos = [
             ("ficha correcta",            lambda s: s,                                              False),
+            # Guardada con el Bloc de notas (marca invisible) o con finales de
+            # linea de Windows: la ficha esta BIEN y no debe dar problema.
+            ("ficha correcta con BOM",    lambda s: "﻿" + s,                                   False),
+            ("ficha correcta con CRLF",   lambda s: s.replace("\n", "\r\n"),                        False),
             ("sin fuente",                lambda s: re.sub(r'fuentes:\n  - tipo: conversacion\n    ref: "prueba interna"', "fuentes:", s), True),
             ("tipo inventado",            lambda s: s.replace("tipo: hecho", "tipo: apunte", 1),    True),
             ("estado inventado",          lambda s: s.replace("estado: vigente", "estado: borrador"), True),
@@ -311,8 +320,13 @@ def autoprueba():
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     print("-" * 72)
-    print("AUTOPRUEBA:", "PASA — detecta los %d fallos y no marca la ficha correcta"
-          % (len(casos) - 1) if ok else "FALLA — el verificador no es de fiar")
+    # Los dos numeros se CUENTAN. Antes se restaba 1 al total dando por hecho
+    # que solo habia un caso sano; al agregar dos casos sanos mas, el programa
+    # empezo a anunciar 18 fallos cuando probaba 16. (2026-07-27)
+    n_malos = sum(1 for c in casos if c[3])
+    n_sanos = len(casos) - n_malos
+    print("AUTOPRUEBA:", ("PASA — detecta los %d fallos y no marca ninguna de las %d fichas correctas"
+                          % (n_malos, n_sanos)) if ok else "FALLA — el verificador no es de fiar")
     return 0 if ok else 1
 
 

@@ -28,7 +28,7 @@ leer.** Aquí puedes revisarlo sin bajar nada.
 |---|---|
 | [`REGLAS.md`](REGLAS.md) | La constitución de tu pensadero. Dos páginas. |
 | [`PROMPTS.md`](PROMPTS.md) | Los tres prompts, listos para pegar. |
-| [`verificador.py`](verificador.py) | El revisor de fichas. **Solo lee**: no escribe, no borra, no usa internet. Unas 300 líneas comentadas. |
+| [`verificador.py`](verificador.py) | El revisor de fichas. **Solo lee**: no escribe, no borra, no usa internet. Unas 340 líneas comentadas. |
 | [`COMO REVISAR TUS FICHAS.md`](COMO%20REVISAR%20TUS%20FICHAS.md) | Tres caminos para revisar. El más simple: pedírselo a tu IA. |
 | [`ejemplo/`](ejemplo) | Un pensadero de dos fichas que funciona. |
 
@@ -86,7 +86,7 @@ punto de partida, no un destino.
 
 ## Dónde se explica todo esto
 
-- 🎥 **[Canal en YouTube](https://www.youtube.com/channel/UCF8EaEZ4kVPQ9bD6idZvSsQ)** — el video *El Pensadero* cuenta el porqué del método, en siete minutos.
+- 🎥 **[Cómo construir un segundo cerebro a tu medida sin saber programar](https://www.youtube.com/watch?v=Qh4DhR4-cK4)** — el video cuenta el porqué del método, en menos de siete minutos.
 - 📬 **[Boletín «Inteligencia que queda»](https://www.linkedin.com/newsletters/inteligencia-que-queda-7473916679656247298)** — las versiones nuevas del kit se anuncian ahí.
 - 💼 **[LinkedIn](https://www.linkedin.com/in/andrew-mac-gregor/)** — donde suele empezar la conversación.
 

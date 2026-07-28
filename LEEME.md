@@ -47,7 +47,7 @@ El proyecto se distingue con el primer tag de cada ficha, no con carpetas.
 ## Sobre seguridad
 
 `verificador.py` solo lee archivos, no usa red y no sale de la carpeta que le
-indiques. Puedes comprobarlo abriendolo: son unas 300 lineas comentadas. El lanzador de
+indiques. Puedes comprobarlo abriendolo: son unas 340 lineas comentadas. El lanzador de
 Windows tiene veinte lineas, a proposito, para que lo leas entero en medio minuto
 antes de ejecutarlo. En Mac no hay lanzador: macOS bloquea los ejecutables
 descargados con un aviso que asusta, y preferimos no ponerte en esa situacion.
@@ -68,8 +68,9 @@ verdad. Una ficha perfectamente formada puede contener un error y dira SANO.
 
 ## Donde se explica todo esto
 
-- **Canal en YouTube** — el video *El Pensadero* cuenta el porque del metodo:
-  https://www.youtube.com/channel/UCF8EaEZ4kVPQ9bD6idZvSsQ
+- **El video** «Como construir un segundo cerebro a tu medida sin saber
+  programar» cuenta el porque del metodo, en menos de siete minutos:
+  https://www.youtube.com/watch?v=Qh4DhR4-cK4
 - **Boletin «Inteligencia que queda»** — ahi se anuncian las versiones nuevas:
   https://www.linkedin.com/newsletters/inteligencia-que-queda-7473916679656247298
 - **LinkedIn** — donde suele empezar la conversacion:
