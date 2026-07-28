@@ -30,8 +30,8 @@ El proyecto se distingue con el primer tag de cada ficha, no con carpetas.
 |---|---|
 | `REGLAS.md` | La constitucion de tu pensadero. **Copia este archivo** dentro de tu `Mi_Pensadero/`. No hace falta copiarlo desde el PDF. |
 | `PROMPTS.md` | Los tres prompts, listos para pegar. |
-| `COMO REVISAR TUS FICHAS.md` | Tres formas de revisar, y ninguna exige saber de terminales. |
-| `Verificar (Windows).bat` | Doble clic, solo Windows. Diecisiete lineas: abrelo y leelo antes. En Mac se usa la IA o la terminal, sin bloqueos. |
+| `COMO REVISAR TUS FICHAS.md` | Tres caminos para revisar. El mas simple: pedirselo a tu IA. |
+| `Verificar (Windows).bat` | Doble clic, solo Windows. Veinte lineas: abrelo y leelo antes. En Mac se usa la IA o la terminal, sin bloqueos. |
 | `verificador.py` | El revisor. Solo lee: no escribe, no borra, no usa internet. |
 | `ejemplo/` | Un pensadero de dos fichas que funciona. Sirve de plantilla. |
 | `EL PENSADERO — guia rapida.pdf` | Seis pasos para instalarlo. **Empieza aqui.** |
@@ -48,7 +48,7 @@ El proyecto se distingue con el primer tag de cada ficha, no con carpetas.
 
 `verificador.py` solo lee archivos, no usa red y no sale de la carpeta que le
 indiques. Puedes comprobarlo abriendolo: son unas 300 lineas comentadas. El lanzador de
-Windows tiene diecisiete lineas, a proposito, para que lo leas entero en medio minuto
+Windows tiene veinte lineas, a proposito, para que lo leas entero en medio minuto
 antes de ejecutarlo. En Mac no hay lanzador: macOS bloquea los ejecutables
 descargados con un aviso que asusta, y preferimos no ponerte en esa situacion.
 

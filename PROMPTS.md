@@ -52,7 +52,7 @@ Si usas la IA solo en el navegador, el pensadero funciona igual, pero **el traba
 - **En cada sesión nueva tienes que pegar `REGLAS.md`.** La IA no recuerda nada de la sesión anterior. La salida cómoda: dejarlo cargado en un proyecto o asistente personalizado.
 - **Para que detecte conflictos, tienes que pegarle también las fichas que puedan chocar.** Si no las ve, no hay conflicto que detectar — y te dirá que todo está bien porque no tiene con qué compararlo.
 - **Las fichas las guardas tú**, copiando lo que te muestra a un archivo nuevo dentro de `Fichas/`, con el nombre del campo `id` más `.md`.
-- **El revisor no lo puede ejecutar.** Tendrás que usar el doble clic o la terminal.
+- **El revisor no lo puede ejecutar.** Tendrás que correrlo tú: doble clic si usas Windows, o la terminal —en Mac es el único camino, y está explicado paso a paso en `COMO REVISAR TUS FICHAS.md`.
 
 En los tres prompts, agrega al principio: *«Aquí van mis reglas y las fichas relevantes: [pega REGLAS.md] [pega las fichas]»*.
 

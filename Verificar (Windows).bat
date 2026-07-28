@@ -10,6 +10,9 @@ set "PY="
 where python >nul 2>nul && set "PY=python"
 if not defined PY where py >nul 2>nul && set "PY=py"
 if not defined PY echo No encuentro Python en este equipo. No es un error tuyo ni del kit. Lee "COMO REVISAR TUS FICHAS.md", seccion "Si dice que Python no existe". & pause & exit /b 1
+REM Consola en UTF-8 recien aqui, DESPUES de preguntar la carpeta: asi se leen
+REM bien los acentos del resultado sin estorbar a la pregunta de arriba.
+chcp 65001 >nul
 %PY% verificador.py "%D%" > ultimo-resultado.txt 2>&1
 type ultimo-resultado.txt
 echo.

@@ -29,7 +29,7 @@ leer.** Aquí puedes revisarlo sin bajar nada.
 | [`REGLAS.md`](REGLAS.md) | La constitución de tu pensadero. Dos páginas. |
 | [`PROMPTS.md`](PROMPTS.md) | Los tres prompts, listos para pegar. |
 | [`verificador.py`](verificador.py) | El revisor de fichas. **Solo lee**: no escribe, no borra, no usa internet. Unas 300 líneas comentadas. |
-| [`COMO REVISAR TUS FICHAS.md`](COMO%20REVISAR%20TUS%20FICHAS.md) | Tres formas de revisar, ninguna exige saber de terminales. |
+| [`COMO REVISAR TUS FICHAS.md`](COMO%20REVISAR%20TUS%20FICHAS.md) | Tres caminos para revisar. El más simple: pedírselo a tu IA. |
 | [`ejemplo/`](ejemplo) | Un pensadero de dos fichas que funciona. |
 
 Y si quieres comprobar que el revisor hace lo que dice, córrelo contra sí mismo:

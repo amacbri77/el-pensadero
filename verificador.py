@@ -32,6 +32,20 @@ Un verificador que solo se ha visto decir SANO no esta probado.
 import os, re, sys, tempfile, shutil
 from collections import Counter
 
+# En Windows, cuando la salida se guarda en un archivo (que es justo lo que hace
+# el lanzador: > ultimo-resultado.txt), Python no escribe en UTF-8 sino en la
+# codificacion del sistema, que no conoce caracteres como — o →. El programa
+# reventaba con un error de Python EN LUGAR de mostrar los problemas: quien
+# tenia las fichas sanas veia SANO, y quien las tenia rotas veia un choque.
+# Justo al reves de lo util. Detectado el 2026-07-27 probando el camino de fallo
+# con la codificacion real de un Windows en espanol. Se fuerza UTF-8 y, por si
+# algun entorno raro lo impide, se sustituye el caracter en vez de reventar.
+for _f in (sys.stdout, sys.stderr):
+    try:
+        _f.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 VERSION = "1.1"
 FECHA   = "2026-07-27"
 
