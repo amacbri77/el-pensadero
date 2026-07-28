@@ -87,7 +87,9 @@ reemplazado_por:
 
 ## Cómo asignar `confianza`
 
-`alta` solo para lo verificable: un hecho con fuente sólida, una decisión registrada, una definición con cita textual. `media` para un `principio`: una tesis del usuario nace aquí y solo sube cuando un hecho verificado la corrobore, enlazado con una relación `apoya`. `baja` para rumores, auto-reportes de un proveedor sobre su producto, o especulación.
+`alta` solo para lo verificable: un hecho con fuente sólida, una decisión registrada, una definición con cita textual. `media` para un `principio`: una tesis del usuario nace aquí y solo sube cuando un hecho verificado la corrobore, enlazado con una relación `apoya`. `baja` para rumores, auto-reportes de un proveedor sobre su producto, o especulación sin nada detrás.
+
+**Un `principio` recién nacido va en `media`, no en `baja`.** Que todavía no esté probado es su condición normal, no un defecto: para eso existe ese tipo. Solo va en `baja` si ni siquiera se apoya en algo que el usuario haya visto.
 
 **Un `hecho` que no puedes respaldar con un documento, una URL o una cita nace `tentativo` y en confianza `baja`.** Sube a `vigente` y a confianza mayor solo cuando aparezca el respaldo. No lo guardes como `vigente` porque suene cierto.
 
