@@ -138,9 +138,22 @@ def verificar(fichas):
         if estado == "en_conflicto" and not contradice:
             mal("esta 'en_conflicto' pero no dice con cual ficha choca "
                 "(le falta una relacion 'contradice')")
+        # OJO con esta condicion. La regla 4d dice que al resolverse la que GANA
+        # vuelve a 'vigente' y la que pierde queda 'caduco' — y la relacion
+        # 'contradice' NO se borra, porque el pensadero conserva la historia.
+        # La version anterior exigia 'en_conflicto' a secas y por tanto marcaba
+        # como error el estado final que las propias reglas prescriben: quien
+        # resolvia bien recibia un aviso de que estaba mal. Se probo el
+        # 2026-07-28 simulando el protocolo entero. Ahora el conflicto solo
+        # sigue abierto si la otra parte no esta 'caduco'.
         if contradice and estado not in ("en_conflicto", "caduco"):
-            mal("dice que contradice a otra ficha pero su estado es '%s': "
-                "deberia estar 'en_conflicto' hasta que tu decidas" % estado)
+            abiertos = [dst for dst in contradice
+                        if campo((fichas.get(dst + ".md") or {}).get("fm") or "",
+                                 "estado") != "caduco"]
+            if abiertos:
+                mal("dice que contradice a '%s' y esa ficha sigue viva, pero su "
+                    "estado es '%s': hasta que decidas, ambas van 'en_conflicto'"
+                    % (abiertos[0], estado))
 
         cuerpo = d["cuerpo"].strip()
         if not cuerpo:
@@ -301,6 +314,15 @@ def autoprueba():
             ("contradice estando vigente",   contra,                   contra, True),
             ("conflicto sin pregunta_abierta",
              lambda s: contra(conflicto(s)), lambda s: contra(conflicto(s)), True),
+            # EL CAMINO BUENO DE LA REGLA 4, que nadie probaba: cuando el
+            # conflicto se resuelve como manda 4d —la que pierde a 'caduco'
+            # con su reemplazado_por, la que gana de vuelta a 'vigente'— el
+            # verificador NO debe protestar. Hasta el 2026-07-28 protestaba:
+            # castigaba a quien seguia las reglas al pie de la letra.
+            ("conflicto resuelto segun la regla 4d",
+             lambda s: contra(s).replace("estado: vigente", "estado: caduco")
+                                .replace("reemplazado_por:", "reemplazado_por: 20260727-b"),
+             contra, False),
         ]
         casos = [(c[0], c[1], nada, c[2]) if len(c) == 3 else c for c in casos]
 
