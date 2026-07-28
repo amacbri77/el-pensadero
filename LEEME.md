@@ -66,6 +66,30 @@ a proposito y te muestra que las detecta. Esta al final de
 `COMO REVISAR TUS FICHAS.md`. Un revisor que solo se ha visto decir SANO no
 esta probado.
 
+## Quien hizo esto, y que hacer si lo mejoras
+
+**No lo hizo un programador.** Lo hizo alguien con un problema: el criterio que
+se gana trabajando se pierde entre conversaciones, y no hay donde dejarlo. Se
+construyo conversando con una IA, no escribiendo codigo a mano. No es software
+de una empresa con un equipo detras: es una herramienta de trabajo, abierta,
+para que la uses y la mejores.
+
+**Pero mejorala con metodo.** La IA hace igual de rapido el acierto y el error:
+
+1. Una cosa a la vez. Si cambias tres y algo se rompe, no sabras cual fue.
+2. Escribe antes que esperas que pase. Si no puedes decirlo, todavia no sabes que estas cambiando.
+3. Prueba el camino que falla, no solo el que funciona.
+4. Comprueba en el resultado, no en la fuente.
+5. Deja escrito por que lo cambiaste.
+
+Y una que las resume: **si tu cambio no se puede comprobar, no lo hagas.**
+
+## Que necesitas
+
+Un computador (esto se instala en el computador, no en el telefono), una IA que
+pueda leer tus carpetas, y **Python instalado** si vas a usar el revisor. El
+revisor es opcional: el pensadero funciona sin el.
+
 ## Que NO hace este kit
 
 El verificador comprueba la **forma** de tus fichas, no si lo que escribiste es

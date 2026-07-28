@@ -8,6 +8,10 @@ Hay tres formas. **Elige una.** No necesitas las otras.
 > treinta y se te haga difícil mirarlas una por una. Si recién empiezas, sáltate
 > esta página entera y vuelve en unas semanas.
 
+> **Hace falta Python.** El revisor es un programa de Python: sin Python en el
+> computador no corre, lo lances como lo lances. Si no lo tienes, al final de
+> esta página está cómo instalarlo — o sáltate el revisor, que es opcional.
+
 > **Dónde está tu pensadero.** Esta carpeta es el **kit**: la instalación.
 > Tu pensadero vive **aparte**, junto a tus proyectos. Cuando el revisor te
 > pregunte por la carpeta, es esa la que tienes que indicarle.

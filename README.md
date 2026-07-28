@@ -70,6 +70,40 @@ material.
 
 ---
 
+## Quién hizo esto, y qué hacer si lo mejoras
+
+**No lo hizo un programador.** Lo hizo alguien con un problema: el criterio que
+se gana trabajando se pierde entre conversaciones, y no hay dónde dejarlo. El kit
+se construyó **conversando con una IA**, no escribiendo código a mano — que es,
+de paso, la prueba de su propia tesis.
+
+Eso tiene una consecuencia que conviene decir de frente: **no es software de una
+empresa con un equipo detrás.** Es una herramienta de trabajo, abierta, para que
+la uses y la mejores. Si algo te parece mejorable, probablemente lo sea.
+
+**Pero mejóralo con método.** La IA hace igual de rápido el acierto y el error:
+
+1. **Una cosa a la vez.** Si cambias tres y algo se rompe, no sabrás cuál fue.
+2. **Escribe antes qué esperas que pase.** Si no puedes decirlo, todavía no sabes qué estás cambiando.
+3. **Prueba el camino que falla**, no solo el que funciona. Lo que solo se ha visto salir bien no está probado.
+4. **Comprueba en el resultado, no en la fuente.** Que el archivo diga lo correcto no significa que lo diga lo que tú recibes.
+5. **Deja escrito por qué lo cambiaste.** Tú dentro de tres meses eres otra persona, y va a querer deshacerlo.
+
+Y una que las resume: **si tu cambio no se puede comprobar, no lo hagas.**
+
+Son archivos de texto y tienes copia. Romper algo no es grave; romperlo sin
+enterarte, sí.
+
+---
+
+## Requisitos
+
+Un computador —esto se instala en el computador, no en el teléfono—, una IA que
+pueda leer tus carpetas, y **Python instalado** si vas a usar el revisor. El
+revisor es opcional: el pensadero funciona sin él.
+
+---
+
 ## De dónde viene
 
 Desciende del patrón **LLM Wiki**, propuesto por Andrej Karpathy: pedirle a la IA
