@@ -39,7 +39,7 @@ Van en el orden en que los vas a usar. Son tres, no más: con una IA que lee tus
 >
 > Si algo choca con una ficha que ya tengo, **aplica el protocolo de conflicto: marca el choque de inmediato y pregúntame a mí cuál vale. No lo resuelvas solo.**
 >
-> Al final, dime en una línea qué guardaste y qué conexiones creaste.
+> Al final, dime en una línea qué guardaste y qué conexiones creaste. Y antes de despedirte, **comprueba que las fichas nuevas cumplen `REGLAS.md`**: si puedes ejecutar `verificador.py`, córrelo sobre mi carpeta `Mi_Pensadero`; si no, revísalas leyendo. **Avísame solo si algo no cumple.**
 
 ---
 
