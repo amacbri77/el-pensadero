@@ -35,7 +35,7 @@ carpeta directamente encima del archivo `.bat` y se salta la pregunta.
 Al terminar, el resultado queda guardado en `ultimo-resultado.txt`, dentro de la
 carpeta del kit. Así no se pierde al cerrar la ventana.
 
-**El archivo tiene doce líneas.** Ábrelo con el Bloc de notas antes de usarlo: verás
+**El archivo tiene diecisiete líneas.** Ábrelo con el Bloc de notas antes de usarlo: verás
 que solo llama al revisor y guarda el resultado.
 
 ### Si Windows te muestra una advertencia
