@@ -227,7 +227,10 @@ def informe(raiz):
     print("=" * 72)
     print("EL PENSADERO · verificador %s (%s)" % (VERSION, FECHA))
     print("=" * 72)
-    print("Leyendo (solo lectura): %s/Fichas/*.md" % raiz)
+    # La barra la pone el sistema, no yo: escrita a mano salia mestiza en
+    # Windows (C:\...\Mi_Pensadero/Fichas/*.md). Visto en la prueba real de
+    # Andrew el 2026-07-28, la primera en un Windows de carne y hueso.
+    print("Leyendo (solo lectura): %s" % os.path.join(raiz, "Fichas", "*.md"))
     fichas, error = leer_fichas(raiz)
     if error:
         print("\n" + error)
