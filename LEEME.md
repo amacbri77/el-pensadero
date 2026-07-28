@@ -70,9 +70,10 @@ esta probado.
 
 **No lo hizo un programador.** Lo hizo alguien con un problema: el criterio que
 se gana trabajando se pierde entre conversaciones, y no hay donde dejarlo. Se
-construyo conversando con una IA, no escribiendo codigo a mano. No es software
-de una empresa con un equipo detras: es una herramienta de trabajo, abierta,
-para que la uses y la mejores.
+construyo conversando con una IA, no escribiendo codigo a mano. Por eso es un
+punto de partida y no un producto cerrado: esta hecho para que lo ajustes a tu
+oficio, a tu vocabulario y a tu nivel de exigencia. Lo que recibes es una base
+que funciona; lo que hagas con ella es tuyo.
 
 **Pero mejorala con metodo.** La IA hace igual de rapido el acierto y el error:
 

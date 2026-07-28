@@ -77,9 +77,11 @@ se gana trabajando se pierde entre conversaciones, y no hay dónde dejarlo. El k
 se construyó **conversando con una IA**, no escribiendo código a mano — que es,
 de paso, la prueba de su propia tesis.
 
-Eso tiene una consecuencia que conviene decir de frente: **no es software de una
-empresa con un equipo detrás.** Es una herramienta de trabajo, abierta, para que
-la uses y la mejores. Si algo te parece mejorable, probablemente lo sea.
+Por eso es **un punto de partida, no un producto cerrado**: está hecho para que lo
+ajustes a tu oficio, a tu vocabulario y a tu nivel de exigencia. Lo que recibes es
+una base que funciona. Lo que hagas con ella es tuyo.
+
+Si algo aquí no te calza, cámbialo. Tú conoces tu trabajo mejor que este documento.
 
 **Pero mejóralo con método.** La IA hace igual de rápido el acierto y el error:
 
