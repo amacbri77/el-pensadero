@@ -47,7 +47,7 @@ El proyecto se distingue con el primer tag de cada ficha, no con carpetas.
 ## Sobre seguridad
 
 `verificador.py` solo lee archivos, no usa red y no sale de la carpeta que le
-indiques. Puedes comprobarlo abriendolo: son unas 340 lineas comentadas. El lanzador de
+indiques. Puedes comprobarlo abriendolo: son unas 360 lineas comentadas. El lanzador de
 Windows tiene veinte lineas, a proposito, para que lo leas entero en medio minuto
 antes de ejecutarlo. En Mac no hay lanzador: macOS bloquea los ejecutables
 descargados con un aviso que asusta, y preferimos no ponerte en esa situacion.
