@@ -15,7 +15,7 @@ No hace falta saber programar.
 ## Descargar
 
 Pulsa el botón verde **Code** aquí arriba y elige **Download ZIP**.
-Se descarga todo el kit, versión 1.1.
+Se descarga todo el kit, versión 1.2.
 
 ---
 
@@ -28,7 +28,7 @@ leer.** Aquí puedes revisarlo sin bajar nada.
 |---|---|
 | [`REGLAS.md`](REGLAS.md) | La constitución de tu pensadero. Dos páginas. |
 | [`PROMPTS.md`](PROMPTS.md) | Los tres prompts, listos para pegar. |
-| [`verificador.py`](verificador.py) | El revisor de fichas. **Sobre tu pensadero solo lee**: no escribe, no borra, no usa internet. La autoprueba es la única que escribe, y lo hace en una carpeta temporal del sistema. Unas 360 líneas comentadas. |
+| [`verificador.py`](verificador.py) | El revisor de fichas. **Sobre tu pensadero solo lee**: no escribe, no borra, no usa internet. La autoprueba es la única que escribe, y lo hace en una carpeta temporal del sistema. Unas 487 líneas comentadas. |
 | [`COMO REVISAR TUS FICHAS.md`](COMO%20REVISAR%20TUS%20FICHAS.md) | Tres caminos para revisar. El más simple: pedírselo a tu IA. |
 | [`Verificar (Windows).bat`](Verificar%20(Windows).bat) | El único archivo que se ejecuta, y solo en Windows. **Veinte líneas**: léelo entero antes. |
 | [`ejemplo/`](ejemplo) | Un pensadero de dos fichas que funciona. |
@@ -50,23 +50,31 @@ Crea fichas rotas a propósito y te muestra que detecta cada fallo.
 2. Abre **`EL PENSADERO — guia rapida.pdf`**: seis pasos, media hora.
 3. Si quieres el porqué de cada regla, está en **`EL PENSADERO — guia completa.pdf`**.
 
+**Esta carpeta es la instalación, no tu pensadero.** Tu pensadero se crea aparte,
+junto a tus proyectos, y no dentro del kit: si algún día reemplazas el kit por una
+versión nueva, lo que guardaste sigue donde estaba.
+
 ---
 
-## ¿Es para ti?
+## Dos herramientas distintas
 
-**Probablemente no, y conviene decirlo antes de que inviertas un fin de semana.**
+Conviene saber en qué se diferencian antes de elegir.
 
-Una LLM Wiki al estilo Karpathy es más simple y más barata
-de mantener. Un pensadero agrega gobierno —procedencia, confianza, reemplazo
-trazable, conflictos a la vista— y **eso cuesta**: unos diez minutos al cierre de
-cada sesión que valga la pena, y ninguna ficha entra sin decir de dónde salió.
+Una **LLM Wiki** al estilo Karpathy son archivos de texto enlazados. La escribes,
+la lees, y no te pide nada más: simple, barata de mantener, y para mucha gente es
+exactamente lo que hace falta.
 
-Si eso te parece mucho, probablemente lo sea. **Una wiki que usas vale más que un
-pensadero que abandonaste.**
+Un **pensadero** añade gobierno —procedencia, confianza, reemplazo trazable,
+conflictos a la vista— y a cambio pide mantenimiento: unos diez minutos al cierre
+de cada sesión que valga la pena, y ninguna ficha entra sin decir de dónde salió.
 
-Vale la pena si decides con esto y no solo tomas notas, si alguien te va a preguntar
-de dónde salió, o si necesitas creerle a la IA cuando te responde sobre tu propio
-material.
+**Ninguna de las dos es mejor: resuelven cosas distintas.** Y la buena es la que
+vas a usar de verdad — una wiki que mantienes vale más que un pensadero
+abandonado.
+
+El gobierno cuesta, y solo compensa si te hace falta. Te hace falta si decides con
+esto y no solo tomas notas, si alguien te va a preguntar de dónde salió, o si
+necesitas creerle a la IA cuando te responde sobre tu propio material.
 
 ---
 
@@ -111,10 +119,6 @@ revisor es opcional: el pensadero funciona sin él.
 Desciende del patrón **LLM Wiki**, propuesto por Andrej Karpathy: pedirle a la IA
 que mantenga una wiki personal de archivos de texto enlazados. Y es justo decirlo.
 
-Aquella idea es más general y más simple. Esta adaptación agrega gobierno para quien
-necesita **confiar** en lo que su cerebro le responde, no solo leerlo. Ninguna es
-mejor: son herramientas para propósitos distintos.
-
 Y ese es, de paso, el punto: hoy puedes tomar una idea ajena y ajustarla a tu forma
 de trabajar conversando con una IA. **Ajusta este kit también.** Las reglas son un
 punto de partida, no un destino.
@@ -130,6 +134,15 @@ punto de partida, no un destino.
 ---
 
 ## Versiones
+
+**v1.2** · 2026-07-28 — la regla 4b se comprueba de verdad: antes bastaba con que
+existiera cualquier `pregunta_abierta` viva para dar por descrito un choque, y
+ahora se exige la que enlaza a las dos fichas en conflicto. El revisor comprueba
+además cuatro reglas más (que el reemplazo apunte a una ficha que existe, que solo
+se llene al caducar, que `relaciones` no quede suelto y que las fechas estén bien
+escritas) y avisa cuando le das la carpeta equivocada. Las dos guías cuentan ahora
+los mismos seis pasos, y el ejemplo de la guía se lee de las fichas que trae el kit
+en vez de estar copiado a mano. Correcciones de redacción en todo el kit.
 
 **v1.1** · 2026-07-27 — primera versión pública.
 

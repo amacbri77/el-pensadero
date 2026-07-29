@@ -1,5 +1,5 @@
 # Cómo revisar tus fichas
-*Kit v1.1 · 2026-07-27*
+*Kit v1.2 · 2026-07-28*
 
 Hay tres formas. **Elige una.** No necesitas las otras.
 

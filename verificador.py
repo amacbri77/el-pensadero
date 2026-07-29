@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 verificador.py — El Pensadero · verificador oficial de fichas
-Version 1.1 · 2026-07-27
+Version 1.2 · 2026-07-28
 
 QUE HACE
     Revisa las fichas de tu pensadero contra REGLAS.md y te dice si alguna
@@ -36,7 +36,7 @@ Si quieres estar seguro de que funciona, corre --autoprueba: crea fichas
 rotas a proposito en una carpeta temporal y te muestra que las detecta.
 Un verificador que solo se ha visto decir SANO no esta probado.
 """
-import os, re, sys, tempfile, shutil
+import os, re, sys, datetime, tempfile, shutil
 from collections import Counter
 
 # En Windows, cuando la salida se guarda en un archivo (que es justo lo que hace
@@ -53,8 +53,8 @@ for _f in (sys.stdout, sys.stderr):
     except Exception:
         pass
 
-VERSION = "1.1"
-FECHA   = "2026-07-27"
+VERSION = "1.2"
+FECHA   = "2026-07-28"
 
 TIPOS   = {"hecho", "definicion", "regla", "procedimiento",
            "decision", "observacion", "principio", "pregunta_abierta"}
@@ -69,7 +69,23 @@ CAMPOS  = ["id", "tipo", "estado", "confianza", "creado", "actualizado",
 def leer_fichas(raiz):
     carpeta = os.path.join(raiz, "Fichas")
     if not os.path.isdir(carpeta):
-        return None, "No encuentro la carpeta 'Fichas' dentro de %s" % raiz
+        # El error mas probable de todos: arrastrar 'Fichas' en vez de
+        # 'Mi_Pensadero'. Decir "no encuentro Fichas dentro de Fichas" no ayuda
+        # a nadie. Se detecta y se explica. (2026-07-28, probando el camino de
+        # error con rutas de verdad.)
+        aviso = ""
+        try:
+            hay_md = os.path.isdir(raiz) and any(
+                n.lower().endswith(".md") for n in os.listdir(raiz))
+        except OSError:
+            hay_md = False
+        if os.path.basename(os.path.normpath(raiz)).lower() == "fichas" or hay_md:
+            aviso = ("\nParece que me diste la carpeta de las fichas. Dame la de "
+                     "arriba, la que se llama 'Mi_Pensadero' y contiene Fichas y "
+                     "Fuentes.")
+        elif not os.path.isdir(raiz):
+            aviso = "\nEsa carpeta no existe. Revisa la ruta o vuelve a arrastrarla."
+        return None, ("No encuentro la carpeta 'Fichas' dentro de %s%s" % (raiz, aviso))
     fichas = {}
     for nombre in sorted(os.listdir(carpeta)):
         if not nombre.endswith(".md"):
@@ -136,6 +152,36 @@ def verificar(fichas):
         if campo(fm, "estado") == "caduco" and not campo(fm, "reemplazado_por"):
             mal("esta caduca pero no dice en 'reemplazado_por' cual la sucede")
 
+        # El otro lado del reemplazo. Hasta el 2026-07-28 el verificador exigia
+        # que la caduca dijera QUIEN la sucede, pero no comprobaba que esa
+        # sucesora existiera ni que el campo se usara solo al caducar. Un
+        # reemplazo que apunta al vacio rompe la trazabilidad en silencio, que
+        # es justo lo que este kit promete conservar.
+        rp = campo(fm, "reemplazado_por")
+        if rp:
+            if rp not in ids:
+                mal("dice que la reemplaza '%s' y esa ficha no existe" % rp)
+            if campo(fm, "estado") != "caduco":
+                mal("tiene 'reemplazado_por' pero su estado es '%s': ese campo "
+                    "solo se llena cuando la ficha queda 'caduco'"
+                    % campo(fm, "estado"))
+
+        # REGLAS.md: "Si la ficha todavia no tiene relaciones, escribe
+        # relaciones: []. No dejes el campo suelto ni te inventes una relacion
+        # para llenarlo." Era una norma escrita que nadie vigilaba.
+        if (re.search(r"^relaciones:[ \t]*$", fm, re.M)
+                and not re.search(r"^relaciones:[ \t]*\n\s+-\s+tipo:", fm, re.M)):
+            mal("el campo 'relaciones' quedo suelto: si no tiene ninguna, "
+                "escribe 'relaciones: []'")
+
+        for c in ("creado", "actualizado"):
+            v = (campo(fm, c) or "").strip("\"' ")
+            if v:
+                try:
+                    datetime.date(*[int(x) for x in v.split("-")])
+                except (ValueError, TypeError):
+                    mal("'%s' no es una fecha AAAA-MM-DD valida: '%s'" % (c, v))
+
         # --- REGLA 4: el protocolo de conflicto ---------------------------
         # Se agrego en v1.1. Antes el verificador validaba forma pero NO
         # comprobaba la regla mas importante del kit: la unica sin vigilancia.
@@ -194,13 +240,35 @@ def verificar(fichas):
                                  "de vuelta (la contradiccion debe ser mutua)"
                                  % (nombre, dst))
 
-    if en_conflicto:
-        hay_pregunta = any(campo(fichas[n]["fm"] or "", "tipo") == "pregunta_abierta"
-                           and campo(fichas[n]["fm"] or "", "estado") != "caduco"
-                           for n in fichas)
-        if not hay_pregunta:
-            problemas.append("hay %d ficha(s) en conflicto y ninguna 'pregunta_abierta' "
-                             "abierta que describa el choque (regla 4b)" % len(en_conflicto))
+    # REGLA 4b, y aqui estaba el agujero mas serio del verificador.
+    # La version anterior se conformaba con que existiera ALGUNA pregunta_abierta
+    # viva en todo el pensadero, daba igual de que hablara. En un pensadero de
+    # verdad casi siempre hay alguna abierta, asi que la regla se cumplia sola y
+    # quedaba muerta justo cuando importa: cuando ya tienes volumen. REGLAS dice
+    # "crea una ficha pregunta_abierta describiendo el choque, ENLAZADA A LAS
+    # DOS", asi que eso es lo que se exige. Encontrado el 2026-07-28 auditando el
+    # codigo del propio verificador, no su comportamiento.
+    preguntas_vivas = []
+    for n in fichas:
+        fm = fichas[n]["fm"] or ""
+        if (campo(fm, "tipo") == "pregunta_abierta"
+                and campo(fm, "estado") != "caduco"):
+            preguntas_vivas.append({d.strip() for _t, d in relaciones(n)})
+
+    parejas = set()
+    for nombre in fichas:
+        if campo(fichas[nombre]["fm"] or "", "estado") != "en_conflicto":
+            continue
+        for t, dst in relaciones(nombre):
+            if t == "contradice" and dst.strip() + ".md" in fichas:
+                parejas.add(tuple(sorted((nombre[:-3], dst.strip()))))
+
+    for x, y in sorted(parejas):
+        if not any({x, y} <= enlaces for enlaces in preguntas_vivas):
+            problemas.append("'%s' y '%s' estan en conflicto y ninguna ficha "
+                             "'pregunta_abierta' abierta enlaza a las dos: sin ella "
+                             "el choque no queda descrito en ninguna parte (regla 4b)"
+                             % (x, y))
 
     return problemas
 
@@ -286,6 +354,34 @@ Texto de prueba.
 """
 
 
+# Una pregunta_abierta perfectamente valida, pero que no habla del conflicto:
+# sirve para comprobar que la regla 4b exige LA pregunta del choque, no una
+# cualquiera.
+PREGUNTA_SUELTA = """---
+id: 20260727-q
+tipo: pregunta_abierta
+estado: vigente
+confianza: baja
+creado: 2026-07-27
+actualizado: 2026-07-27
+fuentes:
+  - tipo: conversacion
+    ref: "prueba interna"
+relaciones: []
+tags: [prueba]
+reemplazado_por:
+---
+
+Una duda de otro asunto, sin relacion con el choque.
+
+## Evidencia
+Texto de prueba.
+
+## Contexto
+Texto de prueba.
+"""
+
+
 def autoprueba():
     """Rompe el verificador a proposito. Si no detecta cada fallo, no sirve."""
     print("=" * 72)
@@ -313,6 +409,14 @@ def autoprueba():
             ("falta un campo",            lambda s: s.replace("tags: [prueba]\n", ""),               True),
             ("cuerpo sin Evidencia",      lambda s: s.replace("## Evidencia\nTexto de prueba.\n\n", ""), True),
             ("cuerpo sin Contexto",       lambda s: s.replace("## Contexto\nTexto de prueba.\n", ""), True),
+            # Agregados el 2026-07-28, tras simular el ciclo de vida completo de
+            # una ficha: los tres pasaban como SANO y no debian.
+            ("reemplazo que no existe",   lambda s: s.replace("estado: vigente", "estado: caduco")
+                                                    .replace("reemplazado_por:", "reemplazado_por: 20260101-no-existe"), True),
+            ("reemplazo estando vigente", lambda s: s.replace("reemplazado_por:", "reemplazado_por: 20260727-b"), True),
+            ("relaciones sueltas",        lambda s: re.sub(r"relaciones:\n  - tipo: relacionado\n    ficha: \S+\n",
+                                                           "relaciones:\n", s), True),
+            ("fecha imposible",           lambda s: s.replace("creado: 2026-07-27", "creado: 2026-13-45"), True),
             ("sin cuerpo",                lambda s: s.split("---\n")[0] + "---\n" + s.split("---\n")[1] + "---\n", True),
         ]
         # --- REGLA 4: cada comprobacion nueva con su prueba negativa -------
@@ -333,16 +437,27 @@ def autoprueba():
              lambda s: contra(s).replace("estado: vigente", "estado: caduco")
                                 .replace("reemplazado_por:", "reemplazado_por: 20260727-b"),
              contra, False),
+            # La regla 4b pedia "alguna" pregunta_abierta viva en todo el
+            # pensadero, no la que describe ESTE choque. En un pensadero con
+            # volumen casi siempre hay alguna abierta, asi que la regla se
+            # cumplia sola y quedaba muerta justo cuando importa. Este caso mete
+            # una pregunta de OTRO tema: el verificador debe seguir protestando.
+            ("conflicto con pregunta de otro tema",
+             lambda s: contra(conflicto(s)), lambda s: contra(conflicto(s)), True,
+             {"20260727-q.md": PREGUNTA_SUELTA}),
         ]
         casos = [(c[0], c[1], nada, c[2]) if len(c) == 3 else c for c in casos]
+        casos = [c if len(c) == 5 else (c[0], c[1], c[2], c[3], {}) for c in casos]
 
-        for etiqueta, romper, romper_b, debe_fallar in casos:
+        for etiqueta, romper, romper_b, debe_fallar, extras in casos:
             caso = os.path.join(tmp, re.sub(r"\W+", "_", etiqueta), "Fichas")
             os.makedirs(caso)
             a = FICHA_OK % ("20260727-a", "20260727-b")
             b = FICHA_OK % ("20260727-b", "20260727-a")
             open(os.path.join(caso, "20260727-a.md"), "w", encoding="utf-8").write(romper(a))
             open(os.path.join(caso, "20260727-b.md"), "w", encoding="utf-8").write(romper_b(b))
+            for _n, _t in extras.items():
+                open(os.path.join(caso, _n), "w", encoding="utf-8").write(_t)
             fichas, _ = leer_fichas(os.path.dirname(caso))
             hay = bool(verificar(fichas))
             bien = (hay == debe_fallar)

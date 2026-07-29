@@ -1,4 +1,4 @@
-# EL PENSADERO · kit v1.1 (2026-07-27)
+# EL PENSADERO · kit v1.2 (2026-07-28)
 
 Un pensadero es una carpeta de archivos de texto donde tus ideas quedan
 guardadas como fichas conectadas —con su fuente, su confianza y su estado—
@@ -9,7 +9,7 @@ mantenida por la inteligencia artificial que ya usas, bajo reglas que tú define
 Tu pensadero vive **aparte**, junto a tus proyectos:
 
 ```
-Mis Proyectos/          <- lo unico que le das a la IA
+Mis Proyectos/          <- lo único que le das a la IA
    Mi_Pensadero/        <- tu pensadero, hermano de los proyectos
       Fuentes/
       Fichas/
@@ -42,7 +42,9 @@ El proyecto se distingue con el primer tag de cada ficha, no con carpetas.
 1. Abre **`EL PENSADERO — guia rapida.pdf`**. Seis pasos, media hora.
 2. Crea tu carpeta `Mi_Pensadero` **junto a tus proyectos**, con `Fuentes` y `Fichas` dentro.
 3. Copia `REGLAS.md` ahí.
-4. Abre `PROMPTS.md` y usa el prompt A con tu IA.
+4. **Dale a tu IA acceso a la carpeta que contiene `Mi_Pensadero` y tus proyectos.** Sin esto, el prompt del paso 5 no puede leer nada.
+5. Abre `PROMPTS.md` y usa el prompt A con tu IA.
+6. Desde ahí en adelante, cierra cada sesión valiosa con el prompt B. Eso es el hábito, y es lo único que se repite.
 
 ## Sobre seguridad
 
@@ -51,10 +53,11 @@ red y no sale de la carpeta que le indiques. La única excepción es la autoprue
 (`--autoprueba`), que crea fichas rotas a propósito en una carpeta temporal del
 sistema y la borra al terminar; nunca toca tus archivos. Si no la corres, el
 programa no escribe nada en ningún sitio. Puedes comprobarlo abriéndolo: las
-únicas líneas que escriben están dentro de la función `autoprueba`. Son unas 360
-líneas comentadas. El lanzador de Windows tiene veinte líneas, a propósito, para que lo leas entero en medio minuto
-antes de ejecutarlo. En Mac no hay lanzador: macOS bloquea los ejecutables
-descargados con un aviso que asusta, y preferimos no ponerte en esa situación.
+únicas líneas que escriben están dentro de la función `autoprueba`. Son unas 487
+líneas comentadas. El lanzador de Windows tiene veinte líneas, a propósito, para
+que lo leas entero en medio minuto antes de ejecutarlo. En Mac no hay lanzador:
+macOS bloquea los ejecutables descargados con un aviso que asusta, y preferimos
+no ponerte en esa situación.
 
 **Da a tu IA una carpeta acotada**, no el disco completo ni el escritorio, y no
 guardes ahí material que no pueda salir. Lo que le pasas a una IA sale de tu
@@ -74,7 +77,7 @@ punto de partida y no un producto cerrado: está hecho para que lo ajustes a tu
 oficio, a tu vocabulario y a tu nivel de exigencia. Lo que recibes es una base
 que funciona; lo que hagas con ella es tuyo.
 
-**Pero mejórala con método.** La IA hace igual de rápido el acierto y el error:
+**Pero mejóralo con método.** La IA hace igual de rápido el acierto y el error:
 
 1. Una cosa a la vez. Si cambias tres y algo se rompe, no sabrás cuál fue.
 2. Escribe antes qué esperas que pase. Si no puedes decirlo, todavía no sabes qué estás cambiando.
@@ -107,5 +110,5 @@ verdad. Una ficha perfectamente formada puede contener un error y dirá SANO.
 
 ## Versión
 
-Kit v1.1, 2026-07-27. Las versiones futuras se publican en el boletín
+Kit v1.2, 2026-07-28. Las versiones futuras se publican en el boletín
 **Inteligencia que queda**. Compara este número con el de la última edición.
