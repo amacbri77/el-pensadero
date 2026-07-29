@@ -15,7 +15,7 @@ No hace falta saber programar.
 ## Descargar
 
 Pulsa el botón verde **Code** aquí arriba y elige **Download ZIP**.
-Se descarga todo el kit, versión 1.2.
+Se descarga todo el kit, versión 1.3.
 
 ---
 
@@ -134,6 +134,9 @@ punto de partida, no un destino.
 ---
 
 ## Versiones
+
+**v1.3** · 2026-07-28 — las dos guías dicen dónde sigue esto: el canal de YouTube
+y el boletín, y que por ahí irán saliendo las versiones nuevas y otras herramientas.
 
 **v1.2** · 2026-07-28 — la regla 4b se comprueba de verdad: antes bastaba con que
 existiera cualquier `pregunta_abierta` viva para dar por descrito un choque, y

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 verificador.py — El Pensadero · verificador oficial de fichas
-Version 1.2 · 2026-07-28
+Version 1.3 · 2026-07-28
 
 QUE HACE
     Revisa las fichas de tu pensadero contra REGLAS.md y te dice si alguna
@@ -53,7 +53,7 @@ for _f in (sys.stdout, sys.stderr):
     except Exception:
         pass
 
-VERSION = "1.2"
+VERSION = "1.3"
 FECHA   = "2026-07-28"
 
 TIPOS   = {"hecho", "definicion", "regla", "procedimiento",

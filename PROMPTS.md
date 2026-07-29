@@ -1,5 +1,5 @@
 # Los tres prompts
-*Kit v1.2 · 2026-07-28*
+*Kit v1.3 · 2026-07-28*
 
 Van en el orden en que los vas a usar. Son tres, no más: con una IA que lee tus carpetas, el resto sobra — ella ya tiene las reglas y las fichas a la vista.
 

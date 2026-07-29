@@ -1,4 +1,4 @@
-# EL PENSADERO · kit v1.2 (2026-07-28)
+# EL PENSADERO · kit v1.3 (2026-07-28)
 
 Un pensadero es una carpeta de archivos de texto donde tus ideas quedan
 guardadas como fichas conectadas —con su fuente, su confianza y su estado—
@@ -110,5 +110,5 @@ verdad. Una ficha perfectamente formada puede contener un error y dirá SANO.
 
 ## Versión
 
-Kit v1.2, 2026-07-28. Las versiones futuras se publican en el boletín
+Kit v1.3, 2026-07-28. Las versiones futuras se publican en el boletín
 **Inteligencia que queda**. Compara este número con el de la última edición.
