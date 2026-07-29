@@ -1,7 +1,7 @@
 # REGLAS.md — El Pensadero
-<!-- version: 1.2 · 2026-07-28 -->
+<!-- version: 1.3 · 2026-07-28 -->
 
-> **Versión 1.2 del kit (2026-07-28).** Este archivo es la constitución de tu pensadero.
+> **Versión 1.3 del kit (2026-07-28).** Este archivo es la constitución de tu pensadero.
 > Guárdalo dentro de tu carpeta `Mi_Pensadero/`, que vive junto a tus proyectos
 > y **no** dentro de la carpeta del kit. Si el kit se actualiza, la versión nueva
 > se publica en el boletín **Inteligencia que queda**; compara este número.
