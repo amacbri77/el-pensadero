@@ -1,10 +1,10 @@
 # REGLAS.md — El Pensadero
-<!-- version: 1.1 · 2026-07-27 -->
+<!-- version: 1.2 · 2026-07-28 -->
 
-> **Version 1.1 del kit (2026-07-27).** Este archivo es la constitucion de tu pensadero.
-> Guardalo dentro de tu carpeta `Mi_Pensadero/`, que vive junto a tus proyectos
-> y **no** dentro de la carpeta del kit. Si el kit se actualiza, la version nueva
-> se publica en el boletin **Inteligencia que queda**; compara este numero.
+> **Versión 1.2 del kit (2026-07-28).** Este archivo es la constitución de tu pensadero.
+> Guárdalo dentro de tu carpeta `Mi_Pensadero/`, que vive junto a tus proyectos
+> y **no** dentro de la carpeta del kit. Si el kit se actualiza, la versión nueva
+> se publica en el boletín **Inteligencia que queda**; compara este número.
 
 ## Qué es este sistema
 
@@ -104,7 +104,7 @@ reemplazado_por:
    **(a)** marca ambas con `estado: en_conflicto` y una relación `contradice` **mutua** — cada una apunta a la otra;
    **(b)** crea una ficha `pregunta_abierta` describiendo el choque, enlazada a las dos;
    **(c)** pregúntale a tu usuario cuál vale — **la decisión es humana, nunca tuya**;
-   **(d)** al resolverse: la que gana vuelve a `vigente`, la que pierde pasa a `caduco` con su `reemplazado_por`, y **la `pregunta_abierta` también pasa a `caduco`**, con `reemplazado_por` apuntando a la ficha o decisión que la resolvió. **La relación `contradice` no se borra:** es la huella de que ahí hubo una discusión, y sin ella el pensadero olvida que su dueño cambió de opinión.
+   **(d)** al resolverse: la que gana vuelve a `vigente`, la que pierde pasa a `caduco` con su `reemplazado_por`, y **la `pregunta_abierta` también pasa a `caduco`**, con `reemplazado_por` apuntando a la ficha que la resolvió: la que ganó, o una ficha `decision` si hubo que crearla. **`reemplazado_por` siempre lleva el `id` de una ficha que existe**, nunca una explicación en prosa. **La relación `contradice` no se borra:** es la huella de que ahí hubo una discusión, y sin ella el pensadero olvida que su dueño cambió de opinión.
 
    **Marcar el conflicto (a) y (b) es inmediato: no esperes permiso para eso.** Registrar que hay una decisión pendiente no es decidir. Lo que sí requiere al usuario es (c) y (d). Si esperas su visto bueno para marcar, el conflicto se queda en la conversación y mañana no existe — y esta regla se llama «conflictos a la vista» justamente por eso.
 
